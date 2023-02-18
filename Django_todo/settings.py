@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from pathlib import Path
+import os
+import dj_database_url
+import env
+
+if os.path.isfile("env.py"):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^)6^hu7u=xa^8co42i$#hslv#2^wa^2bel2$z=92g%e_rs0)^0'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,10 +83,9 @@ WSGI_APPLICATION = 'Django_todo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+       os.environ.get("postgres://ieuggyuh:mYFT3qC7NgjJn2YJzpcql1Y5JHpDpcmt@mouse.db.elephantsql.com/ieuggyuh")
+       }
+} 
 
 
 # Password validation
