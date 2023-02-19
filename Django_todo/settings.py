@@ -14,7 +14,6 @@ from pathlib import Path
 from pathlib import Path
 import os
 import dj_database_url
-import env
 
 if os.path.isfile("env.py"):
     import env
@@ -30,10 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hello-django-fsf-app-module.herokuapp.com']
-
 
 
 # Application definition
